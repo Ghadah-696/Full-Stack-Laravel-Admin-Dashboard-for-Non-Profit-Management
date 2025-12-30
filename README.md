@@ -21,7 +21,7 @@
 
 - **Backend:** PHP (Laravel)
 - **Database:** MySQL
-- **Frontend:** Blade, HTML5, CSS3, JavaScript
+- **Frontend:** Blade, HTML5, CSS3, JavaScript, Tailwind css
 - **Tools:** Git, GitHub
 - **Architecture:** MVC – Laravel Best Practices
 
