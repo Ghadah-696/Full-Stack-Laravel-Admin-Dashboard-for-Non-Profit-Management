@@ -1,0 +1,204 @@
+
+        /* تعريف الألوان المتفق عليها: الأزرق الفاتح الجذاب */
+        :root {
+            --primary-color: #38b6ff;
+            /* الأزرق السماوي الفاتح */
+            --primary-hover-color: #1e87c0;
+            /* أغمق قليلاً للتأثير */
+            --secondary-color: #212529;
+            /* الرمادي الداكن للنص الرئيسي / الخلفيات البارزة */
+            --background-light: #f4f7fa;
+            /* خلفية فاتحة ونظيفة للمحتوى */
+            --sidebar-bg: #212529;
+            /* خلفية الشريط الجانبي الداكنة (اختيار احترافي) */
+            --move-distance: calc(3.5rem - 1.5rem - (0.25rem *2));
+             /* ألوان التصميم الجديد (النيلي/الأزرق الغامق) */
+            --theme-color: #4f46e5; /* Indigo-600 */
+            --theme-hover-color: #4338ca; /* Indigo-700 */
+        }
+
+
+        body {
+            /* font-family: 'Tajawal', sans-serif; */
+             font-family: 'Inter', sans-serif;
+            
+            margin: 0;
+            background-color: var(--background-light);
+        }
+
+        /* ---------------------------
+        تنسيق الشريط الجانبي (Sidebar)
+        ------------------------------ */
+
+        .main-sidebar {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            /* نص أبيض */
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            /* للتمرير عند الحاجة */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            z-index: 50;
+        }
+
+        /* روابط القائمة الرئيسية */
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: #d1d5db;
+            /* رمادي فاتح للنص */
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            color: #ffffff;
+            background-color: #2c3135;
+            /* رمادي داكن للتظليل عند المرور */
+            border-right: 4px solid var(--primary-color);
+            /* خط جانبي مميز للرابط النشط */
+        }
+
+        .sidebar-link i {
+            margin-left: 15px;
+            /* مسافة بين الأيقونة والنص */
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .sidebar-link:hover i,
+        .sidebar-link.active i {
+            color: #ffffff;
+            /* تغيير لون الأيقونة إلى أبيض عند التفعيل */
+        }
+
+        /* تنسيق الروابط الفرعية */
+        .submenu a {
+            padding: 8px 20px 8px 40px;
+            /* مسافة بادئة إضافية للتمييز */
+            font-size: 0.9rem;
+            color: #9ca3af;
+            display: block;
+        }
+
+        .submenu a:hover {
+            background-color: #3a4046;
+            color: #ffffff;
+        }
+
+        /* ---------------------------
+        تنسيق المحتوى الرئيسي
+        ------------------------------ */
+        .main-content {
+            margin-right: 280px;
+            /* مطابقة لعرض الشريط الجانبي */
+            padding: 0;
+            min-height: 100vh;
+            background-color: var(--background-light);
+        }
+
+        /* ---------------------------
+        تنسيق زر التبديل (Switch)
+        ------------------------------ */
+        /* نحافظ على تنسيق زر التبديل الخاص بكِ لعدم تعطيل النماذج */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 3.5rem;
+            height: 2rem;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            /* -webkit-transition: .4s; */
+            transition: .4s;
+            padding: 0.25rem;
+            border-radius: 34px;
+            box-sizing: border-box;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 1.5rem;
+            width: 1.5rem;
+            right: 0.25rem;
+            left: auto;
+            top: 0.25rem;
+            background-color: white;
+            /* -webkit-transition: .4s; */
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--primary-color);
+            /* استخدام لونك الرئيسي */
+        }
+
+        input:checked+.slider:before {
+
+            transform: translateX(calc(0px - var(--move-distance)));
+        }
+    /* -------------------------------------------------
+    ------------تصميم صفحة الإعدادات
+    --------------------------------------------------- */
+     @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-custom {
+            animation: spin 1s linear infinite;
+        }
+         /* تصميم النبض للنجاح */
+        @keyframes pulse-custom {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .animate-pulse-custom {
+            animation: pulse-custom 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* تخصيص زر الحفظ لاستخدام الألوان الجديدة */
+        .primary-button {
+            background-color: var(--theme-color);
+            transition: background-color 0.3s;
+        }
+        .primary-button:hover {
+            background-color: var(--theme-hover-color);
+        }
+        .primary-button:focus {
+             box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.5); /* حلقة تركيز مخصصة نيلية */
+        }
+         .text-primary-color { color: var(--primary-color); }
+        .bg-primary-color { background-color: var(--primary-color); }
+        .hover\:bg-secondary-color:hover { background-color: var(--secondary-color) !important; }
+        /* أنيميشن بسيط للجاري */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-custom {
+            animation: spin 1s linear infinite;
+        }
+         /* -------------------------------------------------
+    ------------نهاية تصميم صفحة الإعدادات
+    --------------------------------------------------- */
